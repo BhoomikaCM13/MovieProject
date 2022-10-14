@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CoreEntity.User>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div>
+    <hr />
+    <a asp-controller="User" asp-action="UserEntry">User Entry</a>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-12">
+        <h2>User</h2>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>UserName</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var user in Model)
+            {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.UserName</td>
+                           <td><a asp-controller="User" asp-action="EditUser" asp-route-Id="@user.Id">Edit</a></td>
+                           <td><a asp-controller="User" asp-action="DeleteUser" asp-route-Id="@user.Id">Delete</a></td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+

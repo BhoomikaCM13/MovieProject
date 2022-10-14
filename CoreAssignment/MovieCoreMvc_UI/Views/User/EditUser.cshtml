@@ -1,0 +1,37 @@
+﻿@model CoreEntity.User
+
+
+<div> 
+    <a asp-controller="User" asp-action="UserEntry">Back to User Entry</a>
+    <center><h1>Welcome to User Edit Session</h1></center>
+<hr />
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <h2>User Entry</h2>
+    <div class=" form-group">
+        <label>User Name</label>
+        <input type="text" asp-for="UserName" class="form-control" placeholder="enter user name" required />
+    </div>
+
+
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+                        <div class="alert alert-success">
+            @ViewBag.message
+                        </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+                       <div class="alert alert-danger">
+            @ViewBag.message
+                      </div>
+    }
+</form>
+
+
+
+

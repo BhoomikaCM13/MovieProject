@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CoreEntity.ShowTiming>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <hr />
+    <a asp-controller="ShowTiming" asp-action="ShowTimingEntry">Show Entry</a>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-12">
+        <h2>Show Timing</h2>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>MId</th>
+                    <th>TId</th>
+                    <th>ShowTime</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var show in Model)
+                {
+                            <tr>
+                                <td>@show.MId</td>
+                                <td>@show.TId</td>
+                                <td>@show.ShowTime</td>
+                               <td><a asp-controller="ShowTiming" asp-action="EditShow" asp-route-Id="@show.Id">Edit</a></td>
+                               <td><a asp-controller="ShowTiming" asp-action="DeleteShow" asp-route-Id="@show.Id">Delete</a></td>
+                            </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

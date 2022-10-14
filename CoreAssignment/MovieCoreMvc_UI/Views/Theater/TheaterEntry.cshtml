@@ -1,0 +1,45 @@
+﻿@model CoreEntity.Theater
+@{
+    ViewData["Title"] = "TheaterEntry";
+}
+
+<div>
+    <hr />
+    <a asp-controller="Theater" asp-action="Index">Theater</a>
+    <hr />
+</div>
+<form method="post" enctype="multipart/form-data">
+    <h2>Theater Entry</h2>
+    <div class=" form-group">
+        <label>Theater Name</label>
+        <input type="text" asp-for="TName" class="form-control" placeholder="enter Theater name" required />
+    </div>
+
+     <div class=" form-group">
+        <label>Theater Address</label>
+        <input type="text" asp-for="Address" class="form-control" placeholder="enter theater address" required />
+    </div>
+
+     <div class=" form-group">
+        <label>Theater Reviews</label>
+        <input type="text" asp-for="Comments" class="form-control" placeholder="enter theater reviews" required />
+    </div>
+
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+            <div class="alert alert-success">
+            @ViewBag.message
+            </div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+           <div class="alert alert-danger">
+            @ViewBag.message
+          </div>
+    }
+</form>
+
+

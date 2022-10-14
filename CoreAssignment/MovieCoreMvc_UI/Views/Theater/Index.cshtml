@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CoreEntity.Theater>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <hr />
+    <a asp-controller="Theater" asp-action="TheaterEntry">Theater Entry</a>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-12">
+        <h2>Theater</h2>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>TName</th>
+                    <th>Address</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var theater in Model)
+                {
+                        <tr>
+                            <td>@theater.Id</td>
+                            <td>@theater.TName</td>
+                            <td>@theater.Address</td>
+                            <td>@theater.Comments</td>
+                           <td><a asp-controller="Theater" asp-action="EditTheater" asp-route-Id="@theater.Id">Edit</a></td>
+                           <td><a asp-controller="Theater" asp-action="DeleteTheater" asp-route-Id="@theater.Id">Delete</a></td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
